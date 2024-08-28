@@ -8,7 +8,7 @@ namespace AvaliacaoMouts
 {
     internal class Cliente : Pessoa
     {
-        public string CPFCNPJ { get; set; }
+        public string CpfCnpj { get; set; }
         public int PontosFidelidade { get; set; }
 
         public Cliente(long id, string nome, string endereco, string cpfcnpj) : base(id, nome, endereco, cpfcnpj)
@@ -18,12 +18,12 @@ namespace AvaliacaoMouts
 
         public override bool validarIdentidade()
         {
-            if (CPFCNPJ.Length == 14)
+            if (CpfCnpj.Length == 14)
             {
-                return CPFCNPJ.Length == 14;
-            } else if (CPFCNPJ.Length == 11)
+                return CpfCnpj.Length == 14;
+            } else if (CpfCnpj.Length == 11)
             {
-                return CPFCNPJ.Length == 11;
+                return CpfCnpj.Length == 11;
             } else
             {
                 return false;
