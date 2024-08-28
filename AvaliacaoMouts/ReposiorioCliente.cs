@@ -53,7 +53,7 @@ namespace AvaliacaoMouts
             }
             else
             {
-                Console.WriteLine("Pessoa não encontrada");
+                throw new ArgumentException("Cliente não encontrada");
             }
         }
 

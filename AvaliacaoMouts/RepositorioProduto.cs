@@ -40,18 +40,18 @@ namespace AvaliacaoMouts
             return produto;
         }
 
-        public void Excluir(Produto item)
+    public void Excluir(Produto item)
+    {
+        Produto produto = _produtos.Find(x => x.Equals(item));
+        if (produto != null)
         {
-            Produto produto = _produtos.Find(x => x.Equals(item));
-            if (produto != null)
-            {
-                _produtos.Remove(produto);
-            }
-            else
-            {
-                Console.WriteLine("Produto não encontrado");
-            }
+            _produtos.Remove(produto);
         }
+        else
+        {
+            throw new ArgumentException("Produto não encontrado");
+        }
+    }
 
         public Produto Salvar(Produto item)
         {
