@@ -26,24 +26,25 @@ namespace AvaliacaoMouts
             return _produtos;
         }
 
-        public Produto Consultar(long id)
+        public Produto Consultar(long item)
         {
             Produto produto = null;
             foreach (Produto p in _produtos)
             {
-                if (p.Id == id)
+                if (p.Id == item)
                 {
                     produto = p;
+                    return p;
                     break;
                 }
             }
-            return produto;
+            throw new KeyNotFoundException($"Produto: {item} não encontrado.");
         }
 
-    public void Excluir(Produto item)
+        public void Excluir(Produto item)
     {
         Produto produto = _produtos.Find(x => x.Equals(item));
-        if (produto != null)
+        if (produto != null)    
         {
             _produtos.Remove(produto);
         }
