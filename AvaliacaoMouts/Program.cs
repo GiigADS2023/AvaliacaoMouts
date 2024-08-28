@@ -48,6 +48,18 @@
             string nomeCliente = Console.ReadLine();
             Cliente cliente = null;
 
+            // Verifica se nomeCliente não é nulo nem vazio
+            if (!string.IsNullOrEmpty(nomeCliente))
+            {
+                cliente = clientes.Find(c => c.Nome.Equals(nomeCliente, StringComparison.OrdinalIgnoreCase));
+                if (cliente == null)
+                {
+                    cliente = new Cliente(6, nomeCliente, "Rua tal", "11223456789");
+                    clientes.Add(cliente);
+                    Console.WriteLine($"Novo cliente {nomeCliente} adicionado.");
+                }
+            }
+
             Venda venda = new Venda(produtosComprados, formaPagamento, cliente);
             venda.GerarCupomFiscal();
         }
