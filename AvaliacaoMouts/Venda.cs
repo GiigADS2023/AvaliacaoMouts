@@ -8,7 +8,6 @@ namespace AvaliacaoMouts
 {
     internal class Venda
     {
-        public long Id { get; set; }
         public List<Produto> Produtos { get; set; }
         public string FormaPagamento { get; set; }
         public Cliente Cliente { get; set; }
