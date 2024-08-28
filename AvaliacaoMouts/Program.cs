@@ -54,7 +54,7 @@
                 cliente = clientes.Find(c => c.Nome.Equals(nomeCliente, StringComparison.OrdinalIgnoreCase));
                 if (cliente == null)
                 {
-                    cliente = new Cliente(6, nomeCliente, "Rua tal", "11223456789");
+                    cliente = new Cliente(clientes.Count + 1, nomeCliente, "Rua tal", "11223456789");
                     clientes.Add(cliente);
                     Console.WriteLine($"Novo cliente {nomeCliente} adicionado.");
                 }
