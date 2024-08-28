@@ -50,5 +50,52 @@ namespace AvaliacaoMouts
             }
             Console.WriteLine("--------------------\n");
         }
+
+        public string FormadePgto()
+        {
+            string formaPagamento = "Não especificado"; 
+            bool validInput = false; 
+
+            while (!validInput) 
+            {
+                Console.WriteLine("Informe a forma de pagamento (1 - Dinheiro, 2 - Cartão, 3 - Pix):");
+
+                try
+                {
+                    if (int.TryParse(Console.ReadLine(), out int opcaoPagamento))
+                    {
+                        switch (opcaoPagamento)
+                        {
+                            case 1:
+                                formaPagamento = "Dinheiro";
+                                validInput = true; 
+                                break;
+                            case 2:
+                                formaPagamento = "Cartão";
+                                validInput = true; 
+                                break;
+                            case 3:
+                                formaPagamento = "Pix";
+                                validInput = true; 
+                                break;
+                            default:
+                                throw new ArgumentException("Opção inválida. Tente novamente.");
+                        }
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Entrada inválida. Tente novamente.");
+                    }
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message); // Display error message and prompt again
+                }
+            }
+
+            return formaPagamento;
+        }
+
+
     }
 }
