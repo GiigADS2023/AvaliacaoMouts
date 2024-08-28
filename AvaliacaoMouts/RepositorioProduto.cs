@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace AvaliacaoMouts
 {
-    internal class ReposiorioCliente : IRepositorio<Cliente, long>
+    internal class RepositorioProduto : IRepositorio<Produto, long>
     {
-        public bool Alterar(long id, Cliente item)
+        public bool Alterar(long id, Produto item)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Cliente> Consultar()
+        public IEnumerable<Produto> Consultar()
         {
             throw new NotImplementedException();
         }
 
-        public Cliente Consultar(long item)
+        public Produto Consultar(long item)
         {
             throw new NotImplementedException();
         }
 
-        public void Excluir(Cliente item)
+        public void Excluir(Produto item)
         {
             throw new NotImplementedException();
         }
 
-        public Cliente Salvar(Cliente item)
+        public Produto Salvar(Produto item)
         {
             throw new NotImplementedException();
         }

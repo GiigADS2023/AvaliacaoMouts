@@ -9,12 +9,13 @@ namespace AvaliacaoMouts
     internal class Cliente : Pessoa
     {
         public string CPFCNPJ { get; set; }
-        public int PontoFidelidade { get; set; }
+        public int PontosFidelidade { get; set; }
 
         public Cliente(long id, string nome, string endereco, string cpfcnpj) : base(id, nome, endereco, cpfcnpj)
         {
-            PontoFidelidade = 0;
+            PontosFidelidade = 0;
         }
+
         public override bool validarIdentidade()
         {
             if (CPFCNPJ.Length == 14)
@@ -27,6 +28,13 @@ namespace AvaliacaoMouts
             {
                 return false;
             }
+        }
+
+        // Caso for informado o nome, deve ser chamado a função AdicionaPontos
+        public void AdicionaPontosFidelidade(int pontos)
+        {
+            PontosFidelidade += pontos;
+            Console.WriteLine($"Pontos de fidelidade: {PontosFidelidade}");
         }
     }
 }
