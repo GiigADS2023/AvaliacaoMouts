@@ -89,7 +89,7 @@ namespace AvaliacaoMouts
                 }
                 catch (ArgumentException ex)
                 {
-                    Console.WriteLine(ex.Message); // Display error message and prompt again
+                    Console.WriteLine(ex.Message); 
                 }
             }
 
