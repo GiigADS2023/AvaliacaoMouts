@@ -40,13 +40,20 @@
                     Console.WriteLine($"{produtosDisponiveis[opcao - 1].Nome} adicionado ao carrinho.");
                 }
             } while (opcao != 0);
-
+            /*
             Console.WriteLine("Informe a forma de pagamento (Dinheiro, Cartão, Pix):");
             string formaPagamento = Console.ReadLine();
+            */
+         
+            Venda v = new Venda(produtosComprados, "");
+            string formaPagamento = v.FormadePgto(); 
+            v.FormaPagamento = formaPagamento; 
+
 
             Console.WriteLine("Informe o nome do cliente (deixe em branco se não quiser informar):");
             string nomeCliente = Console.ReadLine();
             Cliente cliente = null;
+
 
             // Verifica se nomeCliente não é nulo nem vazio
             if (!string.IsNullOrEmpty(nomeCliente))
