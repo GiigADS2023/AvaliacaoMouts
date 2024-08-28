@@ -42,7 +42,7 @@ namespace AvaliacaoMouts
             if (Cliente != null)
             {
                 Console.WriteLine($"Cliente: {Cliente.Nome}");
-                Cliente.AdicionaPontosFidelidade((int)Total); // 1 ponto por cada real gasto
+                Cliente.AddPontosFidelidade((int)Total); // 1 ponto por cada real gasto
             }
             else
             {
