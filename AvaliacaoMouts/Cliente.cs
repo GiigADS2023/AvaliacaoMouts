@@ -8,6 +8,7 @@ namespace AvaliacaoMouts
 {
     internal class Cliente : Pessoa
     {
+        public string CPFCNPJ { get; set; }
         public int PontosFidelidade { get; set; }
 
         public Cliente(long id, string nome, string endereco, string cpfcnpj) : base(id, nome, endereco, cpfcnpj)
