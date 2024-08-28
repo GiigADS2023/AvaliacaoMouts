@@ -38,10 +38,12 @@ namespace AvaliacaoMouts
                 if (cli.Id == item)
                 {
                     cliente = cli;
+                    return cli;
                     break;
                 }
             }
-            return cliente;
+
+            throw new KeyNotFoundException($"Cliente:  {item} não encontrado.");
         }
 
         public void Excluir(Cliente item)
@@ -53,7 +55,7 @@ namespace AvaliacaoMouts
             }
             else
             {
-                Console.WriteLine("Pessoa não encontrada");
+                throw new ArgumentException("Cliente não encontrada");
             }
         }
 

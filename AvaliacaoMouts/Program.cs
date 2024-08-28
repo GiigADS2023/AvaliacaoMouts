@@ -51,14 +51,23 @@
             // Verifica se nomeCliente não é nulo nem vazio
             if (!string.IsNullOrEmpty(nomeCliente))
             {
-                cliente = clientes.Find(c => c.Nome.Equals(nomeCliente, StringComparison.OrdinalIgnoreCase));
-                if (cliente == null)
+                try
                 {
-                    cliente = new Cliente(clientes.Count + 1, nomeCliente, "Rua tal", "11223456789");
-                    clientes.Add(cliente);
-                    Console.WriteLine($"Novo cliente {nomeCliente} adicionado.");
+                    cliente = clientes.Find(c => c.Nome.Equals(nomeCliente, StringComparison.OrdinalIgnoreCase));
+
+                    if (cliente == null)
+                    {
+                        cliente = new Cliente(clientes.Count + 1, nomeCliente, "Rua tal", "11223456789");
+                        clientes.Add(cliente);
+                        Console.WriteLine($"Novo cliente {nomeCliente} adicionado.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao procurar ou adicionar cliente: {ex.Message}");
                 }
             }
+
 
             Venda venda = new Venda(produtosComprados, formaPagamento, cliente);
             venda.GerarCupomFiscal();

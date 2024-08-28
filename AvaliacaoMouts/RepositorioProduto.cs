@@ -26,32 +26,33 @@ namespace AvaliacaoMouts
             return _produtos;
         }
 
-        public Produto Consultar(long id)
+        public Produto Consultar(long item)
         {
             Produto produto = null;
             foreach (Produto p in _produtos)
             {
-                if (p.Id == id)
+                if (p.Id == item)
                 {
                     produto = p;
+                    return p;
                     break;
                 }
             }
-            return produto;
+            throw new KeyNotFoundException($"Produto: {item} não encontrado.");
         }
 
         public void Excluir(Produto item)
+    {
+        Produto produto = _produtos.Find(x => x.Equals(item));
+        if (produto != null)    
         {
-            Produto produto = _produtos.Find(x => x.Equals(item));
-            if (produto != null)
-            {
-                _produtos.Remove(produto);
-            }
-            else
-            {
-                Console.WriteLine("Produto não encontrado");
-            }
+            _produtos.Remove(produto);
         }
+        else
+        {
+            throw new ArgumentException("Produto não encontrado");
+        }
+    }
 
         public Produto Salvar(Produto item)
         {
